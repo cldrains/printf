@@ -6,55 +6,38 @@
 /*   By: tevers <tevers@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 05:30:54 by tevers            #+#    #+#             */
-/*   Updated: 2023/03/01 05:50:20 by tevers           ###   ########.fr       */
+/*   Updated: 2023/03/05 20:04:09 by tevers           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	numlen(unsigned int num)
+int	ft_ulen(unsigned int nbr)
 {
-	int	len;
+	int	i;
 
-	len = 0;
-	while (num != 0)
-	{
-		++len;
-		num = num / 10;
-	}
-	return (len);
+	i = 1;
+	while (nbr != 0 && i++)
+		nbr = nbr / 10;
+	return (--i);
 }
 
-char	*toa(unsigned int n)
+int	ft_print_unbr(unsigned int nbr)
 {
-	char	*num;
+	char	*str;
+	int		i;
 	int		len;
 
-	len = numlen(n);
-	num = (char *)ft_calloc(sizeof(char) * (len + 1), 1);
-	num[len] = '\0';
-	while (n != 0)
+	if (nbr == 0)
+		return (write(1, "0", 1));
+	len = ft_ulen(nbr);
+	str = ft_calloc(sizeof(char) * (len + 1), 1);
+	str[len] = '\0';
+	while (nbr != 0)
 	{
-		num[len - 1] = n % 10 + 48;
-		n = n / 10;
-		--len;
+		str[--len] = nbr % 10 + 48;
+		nbr = nbr / 10;
 	}
-	return (num);
-}
-
-int	ft_print_unbr(unsigned int n)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	if (n == 0)
-		len += write(1, "0", 1);
-	else
-	{
-		num = toa(n);
-		len += ft_print_str(num);
-		free(num);
-	}
-	return (len);
+	i = ft_print_str(str);
+	return (free(str), i);
 }

@@ -10,8 +10,6 @@ SRC =	ft_print_ptr.c \
 		ft_print_hex.c \
 		ft_print_unbr.c \
 		ft_printf.c \
-		ft_calloc.c \
-		ft_memset.c \
 		ft_itoa.c \
 
 OBJS = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: tevers <tevers@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:04:54 by tevers            #+#    #+#             */
-/*   Updated: 2023/03/01 06:35:10 by tevers           ###   ########.fr       */
+/*   Updated: 2023/03/05 20:02:33 by tevers           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ char		*ft_toa(long nb, char *str, int len);
 char		*ft_itoa(int n);
 int			ft_check_hex(unsigned int n, char flag);
 void		ft_print_hex(unsigned long long n, char flag);
-char		*toa(unsigned int n);
-int			numlen(unsigned int num);
+int			ft_ulen(unsigned int num);
 int			ft_print_unbr(unsigned int n);
 
 #endif

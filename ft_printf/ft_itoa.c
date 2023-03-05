@@ -6,7 +6,7 @@
 /*   By: tevers <tevers@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 04:49:49 by tevers            #+#    #+#             */
-/*   Updated: 2023/03/01 06:18:27 by tevers           ###   ########.fr       */
+/*   Updated: 2023/03/05 20:03:37 by tevers           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_len(int nbr)
 
 	len = 1;
 	if (nbr == 0)
-		return (1);
+		return (len);
 	while (nbr < 0 && len++)
 		nbr = nbr * -1;
 	while (nbr > 0 && len++)
@@ -54,9 +54,7 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	len = ft_len(n);
-	str = malloc(sizeof(char) * len + 1);
-	if (!str)
-		return (NULL);
+	str = ft_calloc(sizeof(char) * len + 1, 1);
 	str[len--] = '\0';
 	str = ft_toa(nb, str, len);
 	return (str);
